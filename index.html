@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUX Coffiteria — Минск</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo">LUX Coffiteria</div>
+        <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+    </div>
+
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Menu Item Modal -->
+    <div class="menu-modal-overlay" id="menuModal">
+        <div class="menu-modal">
+            <button class="menu-modal-close" id="menuModalClose">&times;</button>
+            <div class="menu-modal-img-wrap">
+                <img class="menu-modal-img" id="menuModalImg" src="" alt="">
+                <span class="menu-modal-badge" id="menuModalBadge"></span>
+            </div>
+            <div class="menu-modal-body">
+                <div class="menu-modal-title" id="menuModalTitle"></div>
+                <p class="menu-modal-desc" id="menuModalDesc"></p>
+                <div class="menu-modal-tags" id="menuModalTags"></div>
+                <div class="menu-modal-rating" id="menuModalRating"></div>
+                <div class="menu-modal-reviews" id="menuModalReviews"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hours bar -->
+    <div class="hours-bar" id="hoursBar">
+        <span id="hoursText">Сегодня работаем до 22:00 &nbsp;&middot;&nbsp; пр-т Независимости, 28, Минск</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="home">
+        <nav class="nav">
+            <div class="logo">LUX <span>Coffiteria</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#menu">Меню</a></li>
+                <li><a href="#subscription">Подписка</a></li>
+                <li><a href="#atmosphere">Атмосфера</a></li>
+                <li><a href="#booking">Запись</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="nav-timer" id="navTimer">
+                <span class="timer-dot"></span>
+                <span id="timerText">Открыто</span>
+            </div>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles"></div>
+
+        <!-- Floating badge -->
+        <div class="hero-badge" aria-hidden="true">
+            <div class="hero-badge-inner">☕</div>
+            <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path id="circle" d="M 55,55 m -40,0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0" fill="none"/>
+                <text font-family="Inter, sans-serif" font-size="9.5" fill="rgba(176,137,104,0.7)" letter-spacing="3.5">
+                    <textPath href="#circle">SPECIALTY COFFEE · MINSK · 2019 ·</textPath>
+                </text>
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-label">Coffee &amp; Lounge Bar</p>
+            <h1 class="char-reveal">LUX Coffiteria</h1>
+            <div class="hero-divider"></div>
+            <p class="hero-tagline">Там, где кофе становится ритуалом</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary btn-magnetic">Смотреть меню</a>
+                <a href="#booking" class="btn btn-outline btn-magnetic">Забронировать столик</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Кофе LUX Coffiteria">
+                </div>
+                <div class="about-text">
+                    <span class="label-tag">Наша история</span>
+                    <h2>Не просто кофейня —<br>пространство для жизни</h2>
+                    <p>LUX Coffiteria появилась из простой идеи: создать в Минске место, где время замедляется. Мы не гонимся за трендами — мы строим культуру осознанного потребления кофе.</p>
+                    <p>Каждое утро наш ростер обжаривает зёрна из Эфиопии, Колумбии и Бразилии. Каждый бариста знает историю каждого сорта. А каждый гость чувствует себя как дома.</p>
+                    <p class="about-highlight">Мы предоставляем возможность <strong>онлайн-записи и бронирования столиков</strong> — зарезервируйте место заранее, и мы подготовим всё к вашему визиту. Для особых случаев доступна аренда приватных зон и организация мероприятий.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="12">0</span>
+                            <span class="stat-label">Сортов зёрен</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="5">0</span>
+                            <span class="stat-label">Лет с вами</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="30000">0</span>
+                            <span class="stat-label">Чашек / мес</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <span class="label-tag center">Почему мы</span>
+            <h2 class="section-title">Что делает нас особенными</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">01</div>
+                    <h3>Микро-обжарка</h3>
+                    <p>Собственный ростер в зале — вы видите и чувствуете, как рождается вкус</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">02</div>
+                    <h3>Кондитерская</h3>
+                    <p>Десерты нашего шеф-кондитера готовятся каждое утро из фермерских продуктов</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">03</div>
+                    <h3>Коворкинг-зона</h3>
+                    <p>Тихое пространство с розетками, быстрым Wi-Fi и безлимитным фильтр-кофе</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">04</div>
+                    <h3>Кофейная подписка</h3>
+                    <p>Уникальная программа подписки — ваш любимый кофе каждый день со скидкой до 40%</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <span class="label-tag center">Карта напитков</span>
+            <h2 class="section-title">Наше меню</h2>
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-tab="coffee">Кофе</button>
+                <button class="menu-tab" data-tab="tea">Чай</button>
+                <button class="menu-tab" data-tab="desserts">Десерты</button>
+                <button class="menu-tab" data-tab="food">Завтраки</button>
+            </div>
+
+            <!-- Coffee -->
+            <div class="menu-content active" id="coffee">
+                <div class="menu-cards">
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=600&q=80" alt="Эспрессо">
+                            <span class="menu-card-badge">4.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Эспрессо</div>
+                            <p class="menu-card-desc">Плотный, концентрированный шот из моносорта на выбор. Зерно — Эфиопия Йиргачеффе или Колумбия Уила.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">30 мл</span>
+                                <span class="menu-card-tag">Крепкий</span>
+                                <span class="menu-card-tag">Моносорт</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(84 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">АК</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Лучший эспрессо в Минске. Терпкий, насыщенный, без горечи — идеальный баланс.»</div>
+                                        <div class="dish-review-author">Антон К.</div>
+                                    </div>
+                                </div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">МС</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Заказываю каждое утро. Зерно всегда свежее — чувствуется по аромату.»</div>
+                                        <div class="dish-review-author">Мария С.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Капучино">
+                            <span class="menu-card-badge">7.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Капучино</div>
+                            <p class="menu-card-desc">Шёлковая микропенка, идеальный баланс молока и кофе. Подаётся в прогретой чашке 150 мл с латте-артом.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">150 мл</span>
+                                <span class="menu-card-tag">С молоком</span>
+                                <span class="menu-card-tag">Латте-арт</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.8</span>
+                                <span class="menu-card-rating-count">(127 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ОЛ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Пенка — просто шедевр. Рисунок каждый раз разный, пьёшь и любуешься.»</div>
+                                        <div class="dish-review-author">Ольга Л.</div>
+                                    </div>
+                                </div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ДМ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★☆</div>
+                                        <div class="dish-review-text">«Очень мягкий и сбалансированный. Не горький совсем — идеально для утра.»</div>
+                                        <div class="dish-review-author">Дмитрий М.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=80" alt="Латте">
+                            <span class="menu-card-badge">7.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Латте</div>
+                            <p class="menu-card-desc">Мягкий и сливочный, с авторским латте-артом. Объём 300 мл — сытно и вкусно. Можно на растительном молоке.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">300 мл</span>
+                                <span class="menu-card-tag">Нежный</span>
+                                <span class="menu-card-tag">Oat milk +1</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.7</span>
+                                <span class="menu-card-rating-count">(93 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">АН</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Беру с овсяным молоком — просто невероятно нежно. Стал моим ежедневным ритуалом.»</div>
+                                        <div class="dish-review-author">Алина Н.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?w=600&q=80" alt="Раф Ваниль">
+                            <span class="menu-card-badge">8.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Раф Ваниль</div>
+                            <p class="menu-card-desc">Фирменный раф на жирных сливках 33% с мадагаскарской ванилью. Взбивается прямо в питчере — шёлковая текстура.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">250 мл</span>
+                                <span class="menu-card-tag">Сливки 33%</span>
+                                <span class="menu-card-tag">Хит</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">5.0</span>
+                                <span class="menu-card-rating-count">(212 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ЕВ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Лучший раф в моей жизни. Ваниль настоящая, не сироп — это чувствуется.»</div>
+                                        <div class="dish-review-author">Екатерина В.</div>
+                                    </div>
+                                </div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ИП</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Прихожу сюда только из-за рафа. Попробовала — влюбилась. Теперь минимум 3 раза в неделю.»</div>
+                                        <div class="dish-review-author">Ирина П.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80" alt="V60 / Кемекс">
+                            <span class="menu-card-badge">9.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">V60 / Кемекс</div>
+                            <p class="menu-card-desc">Фильтр-кофе ручной заварки. Бариста подберёт зерно и расскажет его историю. Чистый вкус, яркий терруар.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">350 мл</span>
+                                <span class="menu-card-tag">Фильтр</span>
+                                <span class="menu-card-tag">Specialty</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(56 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">СТ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Бариста посоветовал Эфиопию — я открыл новый мир вкуса. Цветочные ноты, никакой горечи!»</div>
+                                        <div class="dish-review-author">Сергей Т.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=600&q=80" alt="Айс Латте">
+                            <span class="menu-card-badge">8.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Айс Латте</div>
+                            <p class="menu-card-desc">Двойной эспрессо, молоко и крупный колотый лёд. Освежает и бодрит — идеально в тёплый день.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">400 мл</span>
+                                <span class="menu-card-tag">Холодный</span>
+                                <span class="menu-card-tag">Двойной шот</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★☆</span>
+                                <span class="menu-card-rating-val">4.6</span>
+                                <span class="menu-card-rating-count">(74 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">НВ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Летом это спасение. Большой стакан, хорошо охлаждён, кофе чувствуется — не вода.»</div>
+                                        <div class="dish-review-author">Наташа В.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tea -->
+            <div class="menu-content" id="tea">
+                <div class="menu-cards">
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=600&q=80" alt="Сенча">
+                            <span class="menu-card-badge">5.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Сенча</div>
+                            <p class="menu-card-desc">Японский зелёный чай первого сбора. Заваривается при 75°C — так раскрываются сладкие и травяные ноты без горечи.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">300 мл</span>
+                                <span class="menu-card-tag">Япония</span>
+                                <span class="menu-card-tag">Зелёный</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.8</span>
+                                <span class="menu-card-rating-count">(38 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ТА</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Настоящая сенча, не пакетик. Очень деликатный вкус, умиротворяет.»</div>
+                                        <div class="dish-review-author">Татьяна А.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=600&q=80" alt="Облепиховый">
+                            <span class="menu-card-badge">6.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Облепиховый</div>
+                            <p class="menu-card-desc">Горячий ягодный напиток с имбирём, мёдом и облепихой. Согревает, бодрит, укрепляет. Хит холодного сезона.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">350 мл</span>
+                                <span class="menu-card-tag">Имбирь</span>
+                                <span class="menu-card-tag">Мёд</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(61 отзыв)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ЛК</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Зимой беру только его. Греет изнутри, кисло-сладкий, насыщенный. Добавка мёда — огонь.»</div>
+                                        <div class="dish-review-author">Лена К.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?w=600&q=80" alt="Эрл Грей">
+                            <span class="menu-card-badge">5.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Эрл Грей</div>
+                            <p class="menu-card-desc">Цейлонский чай с натуральным маслом бергамота. Классика в лучшем виде — ароматный, терпкий, освежающий.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">300 мл</span>
+                                <span class="menu-card-tag">Бергамот</span>
+                                <span class="menu-card-tag">Цейлон</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★☆</span>
+                                <span class="menu-card-rating-val">4.6</span>
+                                <span class="menu-card-rating-count">(29 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ВС</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Качественный чай, не пакетик. Бергамот натуральный — сразу чувствуется разница.»</div>
+                                        <div class="dish-review-author">Виктор С.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="menu-content" id="desserts">
+                <div class="menu-cards">
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1567171466295-4afa63d45416?w=600&q=80" alt="Баскский чизкейк">
+                            <span class="menu-card-badge">9.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Баскский чизкейк</div>
+                            <p class="menu-card-desc">Карамельная корочка снаружи, тающая кремовая сердцевина внутри. Выпекается каждое утро из фермерского сыра.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~150 г</span>
+                                <span class="menu-card-tag">Без муки</span>
+                                <span class="menu-card-tag">Свежий</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">5.0</span>
+                                <span class="menu-card-rating-count">(183 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ЮМ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Я объездила все кофейни Минска в поисках баскского. Здесь — лучший. Без компромиссов.»</div>
+                                        <div class="dish-review-author">Юля М.</div>
+                                    </div>
+                                </div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">АР</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Нежный, не приторный, с идеальной текстурой. К рафу — match made in heaven.»</div>
+                                        <div class="dish-review-author">Артём Р.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&q=80" alt="Тирамису">
+                            <span class="menu-card-badge">10.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Тирамису</div>
+                            <p class="menu-card-desc">На савоярди, пропитанном нашим свежим эспрессо. Маскарпоне, желтки, амаретто — классический итальянский рецепт.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~130 г</span>
+                                <span class="menu-card-tag">Маскарпоне</span>
+                                <span class="menu-card-tag">Классика</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(97 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">КН</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Вкус как у бабушки в Риме. Пропитка идеальная — ни сухо, ни мокро. Браво!»</div>
+                                        <div class="dish-review-author">Кирилл Н.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=600&q=80" alt="Миндальный круассан">
+                            <span class="menu-card-badge">5.50 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Миндальный круассан</div>
+                            <p class="menu-card-desc">Хрустящий, слоистый, с начинкой из франжипана (миндальный крем). Выпекается ежедневно с 7 утра.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~100 г</span>
+                                <span class="menu-card-tag">Франжипан</span>
+                                <span class="menu-card-tag">Утренний</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.8</span>
+                                <span class="menu-card-rating-count">(144 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ПА</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Хруст слышно на весь зал! Тёплый, с миндальной начинкой — моё утро теперь начинается здесь.»</div>
+                                        <div class="dish-review-author">Полина А.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Honey_cake_Medovik.jpg" alt="Медовик">
+                            <span class="menu-card-badge">8.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Медовик</div>
+                            <p class="menu-card-desc">12 тонких медовых коржей с крем-чизом — по старинному рецепту. Нежный, не приторный, тает во рту.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~160 г</span>
+                                <span class="menu-card-tag">Крем-чиз</span>
+                                <span class="menu-card-tag">Домашний</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(76 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">МБ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Как у мамы, только лучше. Слои пропитаны идеально, сладость в меру — беру на вынос домой!»</div>
+                                        <div class="dish-review-author">Марина Б.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="menu-content" id="food">
+                <div class="menu-cards">
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://images.unsplash.com/photo-1525351484163-7529414344d8?w=600&q=80" alt="Авокадо-тост">
+                            <span class="menu-card-badge">12.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Авокадо-тост</div>
+                            <p class="menu-card-desc">Ржаной хлеб, гуакамоле со специями, яйцо пашот, микрозелень и кунжут. Сытный и полезный завтрак.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~280 г</span>
+                                <span class="menu-card-tag">Яйцо пашот</span>
+                                <span class="menu-card-tag">Веган без яйца</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.7</span>
+                                <span class="menu-card-rating-count">(58 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">РК</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Авокадо свежий, не из банки. Яйцо пашот идеально — желток течёт, белок плотный.»</div>
+                                        <div class="dish-review-author">Рома К.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2014_smoked_salmon_and_egg_salad_toasted_baguette.JPG/600px-2014_smoked_salmon_and_egg_salad_toasted_baguette.JPG" alt="Сэндвич с лососем">
+                            <span class="menu-card-badge">14.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Сэндвич с лососем</div>
+                            <p class="menu-card-desc">Копчёный норвежский лосось, крем-чиз, каперсы, руккола, тонко нарезанный красный лук на чиабатте.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">~250 г</span>
+                                <span class="menu-card-tag">Лосось</span>
+                                <span class="menu-card-tag">Чиабатта</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.8</span>
+                                <span class="menu-card-rating-count">(43 отзыва)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ИЗ</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Щедрая порция лосося, хлеб хрустящий. Каперсы дают кислинку — отличное сочетание!»</div>
+                                        <div class="dish-review-author">Инна З.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-card">
+                        <div class="menu-card-img-wrap">
+                            <img class="menu-card-img" src="https://upload.wikimedia.org/wikipedia/commons/2/27/Syrniki.jpg" alt="Сырники">
+                            <span class="menu-card-badge">10.00 BYN</span>
+                        </div>
+                        <div class="menu-card-body">
+                            <div class="menu-card-title">Сырники</div>
+                            <p class="menu-card-desc">Домашние, пышные, из зернистого творога. Подаются с ягодным компоте и деревенской сметаной. Без дрожжей.</p>
+                            <div class="menu-card-tags">
+                                <span class="menu-card-tag">3 шт</span>
+                                <span class="menu-card-tag">Компоте</span>
+                                <span class="menu-card-tag">Творог</span>
+                            </div>
+                            <div class="menu-card-rating">
+                                <span class="menu-card-rating-stars">★★★★★</span>
+                                <span class="menu-card-rating-val">4.9</span>
+                                <span class="menu-card-rating-count">(112 отзывов)</span>
+                            </div>
+                            <div class="menu-card-reviews">
+                                <div class="menu-card-reviews-label">Отзывы</div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">ОП</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Воздушные! Не тяжёлые, не маслянистые. Ягодное компоте кислит ровно сколько нужно.»</div>
+                                        <div class="dish-review-author">Оля П.</div>
+                                    </div>
+                                </div>
+                                <div class="dish-review">
+                                    <div class="dish-review-avatar">НА</div>
+                                    <div class="dish-review-content">
+                                        <div class="dish-review-stars">★★★★★</div>
+                                        <div class="dish-review-text">«Мой сын ест только здешние сырники. Говорит — как у бабушки. Приходим каждые выходные.»</div>
+                                        <div class="dish-review-author">Наталья А.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p class="menu-note">Все цены указаны в BYN</p>
+        </div>
+    </section>
+
+    <!-- Coffee Subscription -->
+    <section class="subscription" id="subscription">
+        <div class="container">
+            <span class="label-tag center light">Уникально</span>
+            <h2 class="section-title">Кофейная подписка</h2>
+            <p class="section-subtitle">Первая в Минске программа кофейной подписки. Пейте любимый кофе каждый день — и экономьте до 40%</p>
+            <div class="sub-grid">
+                <div class="sub-card">
+                    <div class="sub-badge">Старт</div>
+                    <h3>Morning</h3>
+                    <div class="sub-price">49 <span>BYN/мес</span></div>
+                    <ul class="sub-features">
+                        <li>1 напиток в день (до 7 BYN)</li>
+                        <li>Скидка 15% на десерты</li>
+                        <li>Приоритетная очередь</li>
+                    </ul>
+                    <button class="btn btn-sub" onclick="openSubModal('Morning', '49 BYN/мес')">Оформить</button>
+                </div>
+                <div class="sub-card featured">
+                    <div class="sub-badge">Популярный</div>
+                    <h3>Ritual</h3>
+                    <div class="sub-price">89 <span>BYN/мес</span></div>
+                    <ul class="sub-features">
+                        <li>2 напитка в день (любых)</li>
+                        <li>Скидка 25% на всё меню</li>
+                        <li>Бесплатный десерт по пятницам</li>
+                        <li>Доступ в коворкинг</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="openSubModal('Ritual', '89 BYN/мес')">Оформить</button>
+                </div>
+                <div class="sub-card">
+                    <div class="sub-badge">Безлимит</div>
+                    <h3>Unlimited</h3>
+                    <div class="sub-price">139 <span>BYN/мес</span></div>
+                    <ul class="sub-features">
+                        <li>Безлимитный кофе весь день</li>
+                        <li>Скидка 40% на всё меню</li>
+                        <li>Персональный бариста-консультант</li>
+                        <li>1 мастер-класс в месяц</li>
+                        <li>Приоритетное бронирование</li>
+                    </ul>
+                    <button class="btn btn-sub" onclick="openSubModal('Unlimited', '139 BYN/мес')">Оформить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Atmosphere / Gallery -->
+    <section class="atmosphere" id="atmosphere">
+        <div class="container">
+            <span class="label-tag center">Пространство</span>
+            <h2 class="section-title">Атмосфера</h2>
+            <p class="section-subtitle">Каждый уголок создан для того, чтобы вам хотелось остаться</p>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Уютный зал кофейни" loading="lazy">
+                    <div class="gallery-caption">Основной зал</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Барная стойка" loading="lazy">
+                    <div class="gallery-caption">Барная стойка</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80" alt="Зона для чтения" loading="lazy">
+                    <div class="gallery-caption">Библиотека</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600&q=80" alt="Летняя терраса" loading="lazy">
+                    <div class="gallery-caption">Терраса</div>
+                </div>
+                <div class="gallery-item large">
+                    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=80" alt="Вечерняя атмосфера кофейни" loading="lazy">
+                    <div class="gallery-caption">Вечерний LUX</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking -->
+    <section class="booking" id="booking">
+        <div class="container">
+            <div class="booking-grid">
+                <div class="booking-info">
+                    <span class="label-tag">Бронирование</span>
+                    <h2>Забронируйте<br>ваш столик</h2>
+                    <p>Зарезервируйте место заранее — мы подготовим всё к вашему приходу. Для компаний от 6 человек доступны отдельные зоны. Онлайн-запись работает 24/7.</p>
+                    <div class="booking-perks">
+                        <div class="perk">
+                            <span class="perk-icon">&#10003;</span>
+                            <span>Бесплатная отмена за 2 часа</span>
+                        </div>
+                        <div class="perk">
+                            <span class="perk-icon">&#10003;</span>
+                            <span>Комплимент от шефа при бронировании</span>
+                        </div>
+                        <div class="perk">
+                            <span class="perk-icon">&#10003;</span>
+                            <span>Отдельная зона для мероприятий</span>
+                        </div>
+                        <div class="perk">
+                            <span class="perk-icon">&#10003;</span>
+                            <span>Подтверждение за 15 минут</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="booking-form" id="bookingForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Телефон</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+375 (__) ___-__-__" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Дата</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Время</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guests">Гостей</label>
+                            <select id="guests" name="guests">
+                                <option value="1">1 гость</option>
+                                <option value="2" selected>2 гостя</option>
+                                <option value="3">3 гостя</option>
+                                <option value="4">4 гостя</option>
+                                <option value="5">5 гостей</option>
+                                <option value="6+">6 и более</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="zone">Зона</label>
+                            <select id="zone" name="zone">
+                                <option value="main">Основной зал</option>
+                                <option value="bar">У барной стойки</option>
+                                <option value="terrace">Терраса</option>
+                                <option value="library">Библиотека</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label for="wishes">Пожелания</label>
+                        <textarea id="wishes" name="wishes" rows="3" placeholder="Особые пожелания, повод, аллергии..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Забронировать</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-icon">&#10003;</div>
+            <h3>Бронирование принято!</h3>
+            <p>Мы свяжемся с вами для подтверждения в течение 15 минут. Ждём вас в LUX Coffiteria!</p>
+            <button class="btn btn-primary" id="modalOk">Отлично</button>
+        </div>
+    </div>
+
+    <!-- Reviews -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <span class="label-tag center light">Обратная связь</span>
+            <h2 class="section-title">Отзывы наших гостей</h2>
+            <p class="section-subtitle">Читайте впечатления гостей или поделитесь своим опытом</p>
+
+            <!-- Review Form -->
+            <div class="review-form-wrapper">
+                <h3>Оставить отзыв</h3>
+                <form class="review-form" id="reviewForm">
+                    <div class="review-form-row">
+                        <div class="form-group">
+                            <label for="reviewName">Ваше имя</label>
+                            <input type="text" id="reviewName" name="reviewName" placeholder="Как вас зовут?" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Оценка</label>
+                            <div class="star-rating" id="starRating">
+                                <span class="star active" data-value="1">&#9733;</span>
+                                <span class="star active" data-value="2">&#9733;</span>
+                                <span class="star active" data-value="3">&#9733;</span>
+                                <span class="star active" data-value="4">&#9733;</span>
+                                <span class="star active" data-value="5">&#9733;</span>
+                            </div>
+                            <input type="hidden" id="reviewRating" name="reviewRating" value="5">
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label for="reviewText">Ваш отзыв</label>
+                        <textarea id="reviewText" name="reviewText" rows="3" placeholder="Расскажите о вашем визите..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                </form>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews loaded from server -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Review Modal -->
+    <div class="modal-overlay" id="reviewModalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="reviewModalClose">&times;</button>
+            <div class="modal-icon">&#10003;</div>
+            <h3>Спасибо за отзыв!</h3>
+            <p>Ваш отзыв опубликован. Мы ценим ваше мнение и стараемся становиться лучше каждый день.</p>
+            <button class="btn btn-primary" id="reviewModalOk">Отлично</button>
+        </div>
+    </div>
+
+    <!-- Contacts -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            <span class="label-tag center">Найти нас</span>
+            <h2 class="section-title">Контакты</h2>
+            <div class="contacts-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h4>Адрес</h4>
+                        <p>г. Минск, пр-т Независимости, 28</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Время работы</h4>
+                        <p>Пн — Пт: 7:30 — 22:00</p>
+                        <p>Сб — Вс: 9:00 — 23:00</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Телефон</h4>
+                        <p>+375 (29) 123-45-67</p>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <p>hello@luxcoffiteria.by</p>
+                    </div>
+                    <div class="contact-socials">
+                        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+                        <a href="#" class="social-link" aria-label="Telegram">TG</a>
+                        <a href="#" class="social-link" aria-label="VK">VK</a>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.5!2d27.5615!3d53.9006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDU0JzAyLjIiTiAyN8KwMzMnNDEuNCJF!5e0!3m2!1sru!2sby!4v1"
+                        width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">LUX <span>Coffiteria</span></div>
+                <p class="footer-text">Там, где кофе становится ритуалом</p>
+                <div class="footer-links">
+                    <a href="#home">Главная</a>
+                    <a href="#about">О нас</a>
+                    <a href="#menu">Меню</a>
+                    <a href="#subscription">Подписка</a>
+                    <a href="#booking">Запись</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 LUX Coffiteria. Минск. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Subscription Modal -->
+    <div class="modal-overlay" id="subModalOverlay">
+        <div class="modal sub-modal">
+            <button class="modal-close" id="subModalClose">&times;</button>
+            <div class="sub-modal-header">
+                <div class="sub-modal-glow"></div>
+                <div class="sub-icon-wrap">
+                    <svg class="sub-icon-cup" viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <clipPath id="subCupClip">
+                                <path d="M24 33 L29 73 L51 73 L56 33 Z"/>
+                            </clipPath>
+                            <linearGradient id="subCoffeeGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#a57c50"/>
+                                <stop offset="100%" stop-color="#6b3f1e"/>
+                            </linearGradient>
+                            <!-- Cup body gradient for 3D depth -->
+                            <linearGradient id="subCupBody" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#f0e8dd"/>
+                                <stop offset="35%" stop-color="#faf5ef"/>
+                                <stop offset="60%" stop-color="#fff9f4"/>
+                                <stop offset="85%" stop-color="#f5ede3"/>
+                                <stop offset="100%" stop-color="#e8ddd0"/>
+                            </linearGradient>
+                            <!-- Rim gradient -->
+                            <linearGradient id="subRimGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#f7efe4"/>
+                                <stop offset="50%" stop-color="#ede3d5"/>
+                                <stop offset="100%" stop-color="#e0d4c4"/>
+                            </linearGradient>
+                            <!-- Sleeve gradient -->
+                            <linearGradient id="subSleeveGrad" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0%" stop-color="#d9c9b4"/>
+                                <stop offset="40%" stop-color="#e6d8c6"/>
+                                <stop offset="70%" stop-color="#dfd0bc"/>
+                                <stop offset="100%" stop-color="#d2c0a8"/>
+                            </linearGradient>
+                            <!-- Curved path for text on cup surface -->
+                            <path id="subCupTextArc" d="M30 55 Q40 57.5 50 55" fill="none"/>
+                            <!-- Text gradient: lighter center, darker edges (3D cylinder) -->
+                            <linearGradient id="subTextGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#6e4a28"/>
+                                <stop offset="50%" stop-color="#a07850"/>
+                                <stop offset="100%" stop-color="#6e4a28"/>
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Shadow under cup -->
+                        <ellipse cx="40" cy="79" rx="14" ry="2.5" fill="rgba(0,0,0,0.08)"/>
+
+                        <!-- Cup body with gradient -->
+                        <path d="M22 29 L28 73 C28 75 30 77 33 77 L47 77 C50 77 52 75 52 73 L58 29" fill="url(#subCupBody)" stroke="#d0bca6" stroke-width="1"/>
+
+                        <!-- Vertical seam line -->
+                        <line x1="40" y1="33" x2="39" y2="76" stroke="rgba(180,160,140,0.15)" stroke-width="0.6"/>
+
+                        <!-- Highlight strip (left side reflection) -->
+                        <path d="M26 34 L30 72" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+
+                        <!-- Cup rim with depth -->
+                        <rect x="19" y="26" width="42" height="7" rx="3.5" fill="url(#subRimGrad)" stroke="#d0bca6" stroke-width="1"/>
+                        <rect x="20" y="27" width="40" height="2.5" rx="1.2" fill="rgba(255,255,255,0.3)"/>
+
+                        <!-- Sleeve band with texture -->
+                        <path d="M26 44 L28 62 L52 62 L54 44 Z" fill="url(#subSleeveGrad)"/>
+                        <path d="M26 44 L54 44" stroke="rgba(160,140,115,0.3)" stroke-width="0.5"/>
+                        <path d="M28 62 L52 62" stroke="rgba(160,140,115,0.3)" stroke-width="0.5"/>
+                        <!-- Sleeve horizontal ridges -->
+                        <line x1="26.7" y1="48" x2="53.3" y2="48" stroke="rgba(160,140,115,0.12)" stroke-width="0.5"/>
+                        <line x1="27.3" y1="53" x2="52.7" y2="53" stroke="rgba(160,140,115,0.12)" stroke-width="0.5"/>
+                        <line x1="27.7" y1="58" x2="52.3" y2="58" stroke="rgba(160,140,115,0.12)" stroke-width="0.5"/>
+
+                        <!-- LUX text — shadow layer for depth -->
+                        <text font-family="'Cormorant Garamond',serif" font-size="11" font-weight="600" letter-spacing="2" font-style="italic" fill="rgba(60,35,10,0.25)">
+                            <textPath href="#subCupTextArc" startOffset="50%" text-anchor="middle" dy="1">LUX</textPath>
+                        </text>
+                        <!-- LUX text — main layer on curved path -->
+                        <text font-family="'Cormorant Garamond',serif" font-size="11" font-weight="600" letter-spacing="2" font-style="italic" fill="url(#subTextGrad)">
+                            <textPath href="#subCupTextArc" startOffset="50%" text-anchor="middle">LUX</textPath>
+                        </text>
+
+                        <!-- Coffee liquid (animated) -->
+                        <g clip-path="url(#subCupClip)">
+                            <rect class="sub-coffee-fill" x="20" y="73" width="40" height="50" fill="url(#subCoffeeGrad)"/>
+                            <!-- Coffee surface highlight -->
+                            <ellipse class="sub-coffee-surface" cx="40" cy="73" rx="16" ry="2.5" fill="rgba(180,140,90,0.4)"/>
+                        </g>
+
+                        <!-- Steam wisps -->
+                        <path class="sub-steam sub-s1" d="M33 24 Q30 16 33 8" stroke="rgba(200,170,130,0.6)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path class="sub-steam sub-s2" d="M40 22 Q43 14 40 6" stroke="rgba(200,170,130,0.5)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path class="sub-steam sub-s3" d="M47 24 Q50 16 47 8" stroke="rgba(200,170,130,0.6)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Оформление подписки</h3>
+                <p id="subModalPlanLabel" class="sub-plan-label"></p>
+            </div>
+            <form id="subForm" class="sub-form">
+                <input type="hidden" id="subPlan" name="plan">
+                <input type="hidden" id="subPrice" name="price">
+                <div class="form-group">
+                    <label for="subName">Ваше имя *</label>
+                    <input type="text" id="subName" placeholder="Имя и фамилия" required>
+                </div>
+                <div class="form-group">
+                    <label for="subPhone">Телефон *</label>
+                    <input type="tel" id="subPhone" placeholder="+375 (__) ___-__-__" required>
+                </div>
+                <div class="form-group">
+                    <label for="subEmail">Email</label>
+                    <input type="email" id="subEmail" placeholder="example@mail.com">
+                </div>
+                <button type="submit" class="btn btn-primary sub-submit-btn">
+                    <span class="sub-btn-text">Отправить заявку</span>
+                    <span class="sub-btn-shine"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Subscription Success Modal -->
+    <div class="modal-overlay" id="subSuccessOverlay">
+        <div class="modal">
+            <button class="modal-close" id="subSuccessClose">&times;</button>
+            <div class="modal-icon">&#10003;</div>
+            <h3>Заявка принята!</h3>
+            <p>Для активации подписки переведите оплату любым удобным способом:</p>
+
+            <div class="payment-block">
+                <div class="payment-method">
+                    <div class="payment-method-title">🏦 Оплата по IBAN (ЕРИП)</div>
+                    <div class="payment-field">
+                        <span class="payment-label">Получатель</span>
+                        <span class="payment-value">Локаций Даниил Андреевич</span>
+                    </div>
+                    <div class="payment-field">
+                        <span class="payment-label">IBAN</span>
+                        <span class="payment-value payment-copy" id="ibanValue">BY08BPSB3014F000000010296288</span>
+                    </div>
+                    <div class="payment-hint">Нажмите на IBAN, чтобы скопировать</div>
+                </div>
+            </div>
+
+            <p class="payment-note">После оплаты напишите нам — и мы активируем подписку в течение часа. <br>Сумма указана на карточке тарифа.</p>
+            <button class="btn btn-primary" id="subSuccessOk">Понятно</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
