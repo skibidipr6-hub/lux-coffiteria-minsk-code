@@ -16,6 +16,7 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
   }
 
+  const sep = '— — — — — — — — — —';
   let message;
 
   if (data.type === 'booking') {
@@ -26,42 +27,45 @@ exports.handler = async (event) => {
       library: 'Библиотека',
     };
     message = [
-      '<b>Новое бронирование!</b>',
-      '',
-      `<b>Имя:</b> ${esc(data.name)}`,
-      `<b>Телефон:</b> ${esc(data.phone)}`,
-      `<b>Дата:</b> ${esc(data.date)}`,
-      `<b>Время:</b> ${esc(data.time)}`,
-      `<b>Гостей:</b> ${esc(data.guests)}`,
-      `<b>Зона:</b> ${zoneNames[data.zone] || data.zone}`,
-      `<b>Пожелания:</b> ${data.wishes ? esc(data.wishes) : '—'}`,
+      '📅 <b>Новое бронирование!</b>',
+      sep,
+      `👤 <b>Имя:</b> ${esc(data.name)}`,
+      `📞 <b>Телефон:</b> ${esc(data.phone)}`,
+      `🗓 <b>Дата:</b> ${esc(data.date)}`,
+      `⏰ <b>Время:</b> ${esc(data.time)}`,
+      `👥 <b>Гостей:</b> ${esc(data.guests)}`,
+      `📍 <b>Зона:</b> ${zoneNames[data.zone] || data.zone}`,
+      `💬 <b>Пожелания:</b> ${data.wishes ? esc(data.wishes) : '—'}`,
+      sep,
     ].join('\n');
   } else if (data.type === 'subscription') {
     message = [
-      '<b>Новая заявка на подписку!</b>',
-      '',
-      `<b>Тариф:</b> ${esc(data.plan)} — ${esc(data.price)}`,
-      `<b>Имя:</b> ${esc(data.name)}`,
-      `<b>Телефон:</b> ${esc(data.phone)}`,
-      `<b>Email:</b> ${data.email ? esc(data.email) : '—'}`,
+      '☕️ <b>Новая заявка на подписку!</b>',
+      sep,
+      `📦 <b>Тариф:</b> ${esc(data.plan)} — ${esc(data.price)}`,
+      `👤 <b>Имя:</b> ${esc(data.name)}`,
+      `📞 <b>Телефон:</b> ${esc(data.phone)}`,
+      `📧 <b>Email:</b> ${data.email ? esc(data.email) : '—'}`,
+      sep,
     ].join('\n');
   } else if (data.type === 'review') {
-    const starsText = '★'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
+    const starsText = '⭐️'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
     message = [
-      '<b>Новый отзыв!</b>',
-      '',
-      `<b>Имя:</b> ${esc(data.name)}`,
-      `<b>Оценка:</b> ${starsText}`,
-      `<b>Текст:</b> ${esc(data.text)}`,
+      '✍️ <b>Новый отзыв!</b>',
+      sep,
+      `👤 <b>Имя:</b> ${esc(data.name)}`,
+      `🌟 <b>Оценка:</b> ${starsText}`,
+      `💬 <b>Текст:</b> ${esc(data.text)}`,
+      sep,
     ].join('\n');
   } else {
-    // Общая форма обратной связи (name, phone, email)
     message = [
-      '<b>Новая заявка!</b>',
-      '',
-      `<b>Имя:</b> ${esc(data.name)}`,
-      `<b>Телефон:</b> ${esc(data.phone)}`,
-      `<b>Email:</b> ${data.email ? esc(data.email) : '—'}`,
+      '📩 <b>Новая заявка!</b>',
+      sep,
+      `👤 <b>Имя:</b> ${esc(data.name)}`,
+      `📞 <b>Телефон:</b> ${esc(data.phone)}`,
+      `📧 <b>Email:</b> ${data.email ? esc(data.email) : '—'}`,
+      sep,
     ].join('\n');
   }
 
