@@ -1,3 +1,6 @@
+// ===== Google Apps Script endpoint =====
+const FORM_API = 'https://script.google.com/macros/s/AKfycbxGVsRmoTWaI8ObdMi7SEeRRMJrz1n-jJjesJAbwoBULwgR7pMmfLyi301vj6Out_3isA/exec';
+
 // ===== PAGE LOADER =====
 const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 const pageLoader = document.getElementById('pageLoader');
@@ -152,17 +155,13 @@ bookingForm.addEventListener('submit', async (e) => {
     if (!data.name || !data.phone || !data.date || !data.time) return;
 
     try {
-        const res = await fetch('/.netlify/functions/send-tg', {
+        await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...data, type: 'booking' })
+            body: JSON.stringify({ ...data, type: 'booking' }),
+            mode: 'no-cors'
         });
-        if (res.ok) {
-            modalOverlay.classList.add('active');
-            bookingForm.reset();
-        } else {
-            alert('Не удалось отправить бронирование. Попробуйте ещё раз.');
-        }
+        modalOverlay.classList.add('active');
+        bookingForm.reset();
     } catch {
         alert('Ошибка сети. Проверьте подключение и попробуйте ещё раз.');
     }
@@ -252,19 +251,15 @@ reviewForm.addEventListener('submit', async (e) => {
     if (!data.name || !data.text) return;
 
     try {
-        const res = await fetch('/.netlify/functions/send-tg', {
+        await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...data, type: 'review' })
+            body: JSON.stringify({ ...data, type: 'review' }),
+            mode: 'no-cors'
         });
 
-        if (res.ok) {
-            reviewModalOverlay.classList.add('active');
-            reviewForm.reset();
-            setStars(5);
-        } else {
-            alert('Не удалось отправить отзыв. Попробуйте ещё раз.');
-        }
+        reviewModalOverlay.classList.add('active');
+        reviewForm.reset();
+        setStars(5);
     } catch {
         alert('Не удалось отправить отзыв. Проверьте подключение.');
     }
@@ -630,18 +625,14 @@ document.getElementById('subForm').addEventListener('submit', async (e) => {
     if (btnTextEl) btnTextEl.textContent = 'Отправка...';
 
     try {
-        const res = await fetch('/.netlify/functions/send-tg', {
+        const res = await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ...data, type: 'subscription' })
+            body: JSON.stringify({ ...data, type: 'subscription' }),
+            mode: 'no-cors'
         });
-        if (res.ok) {
-            closeSubModal();
-            subSuccessOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        } else {
-            alert('Не удалось отправить заявку. Попробуйте ещё раз.');
-        }
+        closeSubModal();
+        subSuccessOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     } catch {
         alert('Ошибка сети. Проверьте подключение и попробуйте ещё раз.');
     } finally {
