@@ -234,41 +234,6 @@ starRating.addEventListener('mouseleave', () => {
 const reviewsGrid = document.getElementById('reviewsGrid');
 reviewsGrid.innerHTML = '<div class="reviews-empty">Пока нет отзывов. Станьте первым!</div>';
 
-function renderReviews(reviews) {
-    if (reviews.length === 0) {
-        reviewsGrid.innerHTML = '<div class="reviews-empty">Пока нет отзывов. Станьте первым!</div>';
-        return;
-    }
-
-    reviewsGrid.innerHTML = reviews.map(r => {
-        const starsHtml = '&#9733;'.repeat(r.rating) + '<span style="opacity:0.2">' + '&#9733;'.repeat(5 - r.rating) + '</span>';
-        const date = new Date(r.created_at).toLocaleDateString('ru-RU', {
-            day: 'numeric', month: 'long', year: 'numeric'
-        });
-        const escapedText = r.text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        const escapedName = r.name.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-        return `
-            <div class="review-card">
-                <div class="stars">${starsHtml}</div>
-                <p class="review-text">"${escapedText}"</p>
-                <div class="review-meta">
-                    <span class="review-author">— ${escapedName}</span>
-                    <span class="review-date">${date}</span>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    // Animate new cards
-    reviewsGrid.querySelectorAll('.review-card').forEach(card => {
-        card.classList.add('fade-in');
-        observer.observe(card);
-    });
-}
-
-loadReviews();
-
 // ===== Review form — send to backend =====
 const reviewForm = document.getElementById('reviewForm');
 const reviewModalOverlay = document.getElementById('reviewModalOverlay');
