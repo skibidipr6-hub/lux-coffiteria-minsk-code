@@ -45,6 +45,15 @@ exports.handler = async (event) => {
       `<b>Телефон:</b> ${esc(data.phone)}`,
       `<b>Email:</b> ${data.email ? esc(data.email) : '—'}`,
     ].join('\n');
+  } else if (data.type === 'review') {
+    const starsText = '★'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
+    message = [
+      '<b>Новый отзыв!</b>',
+      '',
+      `<b>Имя:</b> ${esc(data.name)}`,
+      `<b>Оценка:</b> ${starsText}`,
+      `<b>Текст:</b> ${esc(data.text)}`,
+    ].join('\n');
   } else {
     // Общая форма обратной связи (name, phone, email)
     message = [
