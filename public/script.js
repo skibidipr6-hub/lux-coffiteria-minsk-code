@@ -1,3 +1,5 @@
+// ===== Google Apps Script endpoint =====
+const FORM_API = 'https://script.google.com/macros/s/AKfycbxGVsRmoTWaI8ObdMi7SEeRRMJrz1n-jJjesJAbwoBULwgR7pMmfLyi301vj6Out_3isA/exec';
 // ===== PAGE LOADER =====
 const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 const pageLoader = document.getElementById('pageLoader');
@@ -72,7 +74,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll(
-    '.feature-card, .menu-item, .gallery-item, .contact-info, .contact-map, .about-text, .about-image, .booking-info, .booking-form, .sub-card, .review-form-wrapper'
+    '.feature-card, .menu-item, .gallery-item, .contact-info, .contact-map, .about-text, .about-image, .booking-perk-card, .booking-form-wrap, .sub-card, .review-form-wrapper'
 ).forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
@@ -152,17 +154,13 @@ bookingForm.addEventListener('submit', async (e) => {
     if (!data.name || !data.phone || !data.date || !data.time) return;
 
     try {
-        const res = await fetch('/api/bookings', {
+        await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ ...data, type: 'booking' }),
+            mode: 'no-cors'
         });
-        if (res.ok) {
-            modalOverlay.classList.add('active');
-            bookingForm.reset();
-        } else {
-            alert('Не удалось отправить бронирование. Попробуйте ещё раз.');
-        }
+        modalOverlay.classList.add('active');
+        bookingForm.reset();
     } catch {
         alert('Ошибка сети. Проверьте подключение и попробуйте ещё раз.');
     }
@@ -230,53 +228,9 @@ starRating.addEventListener('mouseleave', () => {
     setStars(parseInt(ratingInput.value));
 });
 
-// ===== Reviews — load from server =====
+// ===== Reviews — no DB on Netlify, show placeholder =====
 const reviewsGrid = document.getElementById('reviewsGrid');
-
-async function loadReviews() {
-    try {
-        const res = await fetch('/api/reviews');
-        const reviews = await res.json();
-        renderReviews(reviews);
-    } catch {
-        renderReviews([]);
-    }
-}
-
-function renderReviews(reviews) {
-    if (reviews.length === 0) {
-        reviewsGrid.innerHTML = '<div class="reviews-empty">Пока нет отзывов. Станьте первым!</div>';
-        return;
-    }
-
-    reviewsGrid.innerHTML = reviews.map(r => {
-        const starsHtml = '&#9733;'.repeat(r.rating) + '<span style="opacity:0.2">' + '&#9733;'.repeat(5 - r.rating) + '</span>';
-        const date = new Date(r.created_at).toLocaleDateString('ru-RU', {
-            day: 'numeric', month: 'long', year: 'numeric'
-        });
-        const escapedText = r.text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-        const escapedName = r.name.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-        return `
-            <div class="review-card">
-                <div class="stars">${starsHtml}</div>
-                <p class="review-text">"${escapedText}"</p>
-                <div class="review-meta">
-                    <span class="review-author">— ${escapedName}</span>
-                    <span class="review-date">${date}</span>
-                </div>
-            </div>
-        `;
-    }).join('');
-
-    // Animate new cards
-    reviewsGrid.querySelectorAll('.review-card').forEach(card => {
-        card.classList.add('fade-in');
-        observer.observe(card);
-    });
-}
-
-loadReviews();
+reviewsGrid.innerHTML = '<div class="reviews-empty">Пока нет отзывов. Станьте первым!</div>';
 
 // ===== Review form — send to backend =====
 const reviewForm = document.getElementById('reviewForm');
@@ -296,20 +250,15 @@ reviewForm.addEventListener('submit', async (e) => {
     if (!data.name || !data.text) return;
 
     try {
-        const res = await fetch('/api/reviews', {
+        await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ ...data, type: 'review' }),
+            mode: 'no-cors'
         });
 
-        if (res.ok) {
-            reviewModalOverlay.classList.add('active');
-            reviewForm.reset();
-            setStars(5);
-            loadReviews();
-        } else {
-            alert('Не удалось отправить отзыв. Попробуйте ещё раз.');
-        }
+        reviewModalOverlay.classList.add('active');
+        reviewForm.reset();
+        setStars(5);
     } catch {
         alert('Не удалось отправить отзыв. Проверьте подключение.');
     }
@@ -675,18 +624,14 @@ document.getElementById('subForm').addEventListener('submit', async (e) => {
     if (btnTextEl) btnTextEl.textContent = 'Отправка...';
 
     try {
-        const res = await fetch('/api/subscriptions', {
+        const res = await fetch(FORM_API, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify({ ...data, type: 'subscription' }),
+            mode: 'no-cors'
         });
-        if (res.ok) {
-            closeSubModal();
-            subSuccessOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        } else {
-            alert('Не удалось отправить заявку. Попробуйте ещё раз.');
-        }
+        closeSubModal();
+        subSuccessOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
     } catch {
         alert('Ошибка сети. Проверьте подключение и попробуйте ещё раз.');
     } finally {
