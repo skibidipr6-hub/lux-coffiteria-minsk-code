@@ -845,79 +845,104 @@
 
     <!-- Booking -->
     <section class="booking" id="booking">
+        <div class="booking-bg-ornament" aria-hidden="true"></div>
         <div class="container">
-            <div class="booking-grid">
-                <div class="booking-info">
-                    <span class="label-tag">Бронирование</span>
-                    <h2>Забронируйте<br>ваш столик</h2>
-                    <p>Зарезервируйте место заранее — мы подготовим всё к вашему приходу. Для компаний от 6 человек доступны отдельные зоны. Онлайн-запись работает 24/7.</p>
-                    <div class="booking-perks">
-                        <div class="perk">
-                            <span class="perk-icon">&#10003;</span>
-                            <span>Бесплатная отмена за 2 часа</span>
-                        </div>
-                        <div class="perk">
-                            <span class="perk-icon">&#10003;</span>
-                            <span>Комплимент от шефа при бронировании</span>
-                        </div>
-                        <div class="perk">
-                            <span class="perk-icon">&#10003;</span>
-                            <span>Отдельная зона для мероприятий</span>
-                        </div>
-                        <div class="perk">
-                            <span class="perk-icon">&#10003;</span>
-                            <span>Подтверждение за 15 минут</span>
-                        </div>
+            <div class="booking-header">
+                <span class="label-tag center light">Бронирование</span>
+                <h2 class="section-title">Забронируйте ваш столик</h2>
+                <p class="section-subtitle">Зарезервируйте место заранее — мы подготовим всё к вашему приходу</p>
+            </div>
+
+            <div class="booking-perks-row">
+                <div class="booking-perk-card">
+                    <div class="perk-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
+                    <div class="perk-card-title">Подтверждение</div>
+                    <div class="perk-card-desc">Ответим в течение 15 минут</div>
+                </div>
+                <div class="booking-perk-card">
+                    <div class="perk-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    </div>
+                    <div class="perk-card-title">Комплимент</div>
+                    <div class="perk-card-desc">Десерт от шефа в подарок</div>
+                </div>
+                <div class="booking-perk-card">
+                    <div class="perk-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="perk-card-title">Приватные зоны</div>
+                    <div class="perk-card-desc">Отдельная зона для компаний</div>
+                </div>
+                <div class="booking-perk-card">
+                    <div class="perk-card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                    </div>
+                    <div class="perk-card-title">Отмена</div>
+                    <div class="perk-card-desc">Бесплатно за 2 часа</div>
+                </div>
+            </div>
+
+            <div class="booking-form-wrap">
+                <div class="booking-form-decor" aria-hidden="true">
+                    <span class="decor-line"></span>
+                    <span class="decor-diamond"></span>
+                    <span class="decor-line"></span>
                 </div>
                 <form class="booking-form" id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Имя</label>
-                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    <div class="booking-form-inner">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Имя</label>
+                                <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+375 (__) ___-__-__" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" placeholder="+375 (__) ___-__-__" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Дата</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="time">Время</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
                         </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="guests">Гостей</label>
+                                <select id="guests" name="guests">
+                                    <option value="1">1 гость</option>
+                                    <option value="2" selected>2 гостя</option>
+                                    <option value="3">3 гостя</option>
+                                    <option value="4">4 гостя</option>
+                                    <option value="5">5 гостей</option>
+                                    <option value="6+">6 и более</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="zone">Зона</label>
+                                <select id="zone" name="zone">
+                                    <option value="main">Основной зал</option>
+                                    <option value="bar">У барной стойки</option>
+                                    <option value="terrace">Терраса</option>
+                                    <option value="library">Библиотека</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group full">
+                            <label for="wishes">Пожелания</label>
+                            <textarea id="wishes" name="wishes" rows="3" placeholder="Особые пожелания, повод, аллергии..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full btn-magnetic">
+                            <span>Забронировать столик</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </button>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Дата</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Время</label>
-                            <input type="time" id="time" name="time" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="guests">Гостей</label>
-                            <select id="guests" name="guests">
-                                <option value="1">1 гость</option>
-                                <option value="2" selected>2 гостя</option>
-                                <option value="3">3 гостя</option>
-                                <option value="4">4 гостя</option>
-                                <option value="5">5 гостей</option>
-                                <option value="6+">6 и более</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="zone">Зона</label>
-                            <select id="zone" name="zone">
-                                <option value="main">Основной зал</option>
-                                <option value="bar">У барной стойки</option>
-                                <option value="terrace">Терраса</option>
-                                <option value="library">Библиотека</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group full">
-                        <label for="wishes">Пожелания</label>
-                        <textarea id="wishes" name="wishes" rows="3" placeholder="Особые пожелания, повод, аллергии..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-full">Забронировать</button>
                 </form>
             </div>
         </div>
@@ -936,21 +961,31 @@
 
     <!-- Reviews -->
     <section class="reviews" id="reviews">
+        <div class="reviews-bg-glow" aria-hidden="true"></div>
         <div class="container">
             <span class="label-tag center light">Обратная связь</span>
             <h2 class="section-title">Отзывы наших гостей</h2>
             <p class="section-subtitle">Читайте впечатления гостей или поделитесь своим опытом</p>
 
+            <!-- Reviews List -->
+            <div class="reviews-grid" id="reviewsGrid">
+                <!-- Reviews loaded from server -->
+            </div>
+
             <!-- Review Form -->
             <div class="review-form-wrapper">
-                <h3>Оставить отзыв</h3>
+                <div class="review-form-header">
+                    <div class="review-form-quote" aria-hidden="true">&ldquo;</div>
+                    <h3>Поделитесь впечатлениями</h3>
+                    <p class="review-form-subtitle">Ваш отзыв поможет нам стать лучше</p>
+                </div>
                 <form class="review-form" id="reviewForm">
-                    <div class="review-form-row">
+                    <div class="review-form-top">
                         <div class="form-group">
                             <label for="reviewName">Ваше имя</label>
                             <input type="text" id="reviewName" name="reviewName" placeholder="Как вас зовут?" required>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group review-rating-group">
                             <label>Оценка</label>
                             <div class="star-rating" id="starRating">
                                 <span class="star active" data-value="1">&#9733;</span>
@@ -964,15 +999,13 @@
                     </div>
                     <div class="form-group full">
                         <label for="reviewText">Ваш отзыв</label>
-                        <textarea id="reviewText" name="reviewText" rows="3" placeholder="Расскажите о вашем визите..." required></textarea>
+                        <textarea id="reviewText" name="reviewText" rows="4" placeholder="Расскажите о вашем визите — что понравилось, что запомнилось..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                    <button type="submit" class="btn btn-primary btn-magnetic">
+                        <span>Отправить отзыв</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    </button>
                 </form>
-            </div>
-
-            <!-- Reviews List -->
-            <div class="reviews-grid" id="reviewsGrid">
-                <!-- Reviews loaded from server -->
             </div>
         </div>
     </section>

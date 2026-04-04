@@ -1,6 +1,5 @@
 // ===== Google Apps Script endpoint =====
 const FORM_API = 'https://script.google.com/macros/s/AKfycbxGVsRmoTWaI8ObdMi7SEeRRMJrz1n-jJjesJAbwoBULwgR7pMmfLyi301vj6Out_3isA/exec';
-
 // ===== PAGE LOADER =====
 const isTouchDevice = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 const pageLoader = document.getElementById('pageLoader');
@@ -75,7 +74,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll(
-    '.feature-card, .menu-item, .gallery-item, .contact-info, .contact-map, .about-text, .about-image, .booking-info, .booking-form, .sub-card, .review-form-wrapper'
+    '.feature-card, .menu-item, .gallery-item, .contact-info, .contact-map, .about-text, .about-image, .booking-perk-card, .booking-form-wrap, .sub-card, .review-form-wrapper'
 ).forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
